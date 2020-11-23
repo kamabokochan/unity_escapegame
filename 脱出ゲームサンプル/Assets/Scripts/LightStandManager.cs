@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LightStandManager : MonoBehaviour {
+    [SerializeField] GameObject lightText;
     [SerializeField] Sprite lightON;
     [SerializeField] Sprite lightOFF;
     [SerializeField] Image image;
@@ -14,5 +15,6 @@ public class LightStandManager : MonoBehaviour {
         } else {
             image.sprite = lightOFF;
         }
+        lightText.SetActive(isON);
     }
 }

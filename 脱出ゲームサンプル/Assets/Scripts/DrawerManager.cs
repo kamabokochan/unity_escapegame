@@ -16,12 +16,20 @@ public class DrawerManager : MonoBehaviour {
         alertText.SetActive(isShow);
     }
 
+    bool isGetBulb = false;
+
     // 引き出しが押されたら
     // 1. 電球の画像を出す
     // 2. Textを出す
     public void OnClickTrigger() {
+        // すでに電球をゲットしていたら何もしない
+        if (isGetBulb) {
+            return;
+        }
+
         LightBulbSetActive(true);
         itemBoxManager.SetItem(ITEM.LIGHT_BULB);
+        isGetBulb = true;
     }
 
     // 電球の画像をクリックすると電球画像を非表示にする
