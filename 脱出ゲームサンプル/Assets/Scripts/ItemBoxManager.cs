@@ -11,6 +11,8 @@ public enum ITEM {
 public class ItemBoxManager : MonoBehaviour {
     [SerializeField] Sprite lightBulbSprite; // 電球画像
     [SerializeField] Image[] itemBoxImages;
+    [SerializeField] LightStandManager lightStandManager;
+
     ITEM[] itemsList = new ITEM[4]; // 取得したアイテムの配列
 
     // アイテムを取得した
@@ -29,6 +31,13 @@ public class ItemBoxManager : MonoBehaviour {
 
     // アイテムを使用
     public void UseItem(int index) {
+        switch (itemsList[index]) {
+            case ITEM.LIGHT_BULB:
+                lightStandManager.LightSwitch(true);
+                break;
+            default:
+                break;
+        }
         itemsList[index] = ITEM.NONE; // アイテムを使用したので空にする
         itemBoxImages[index].sprite = null;
     }
