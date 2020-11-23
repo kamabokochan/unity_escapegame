@@ -58,6 +58,8 @@
      <Compile Include="Assets\Scripts\DrawerManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\ItemBoxManager.cs" />
+     <Compile Include="Assets\Scripts\LightStandManager.cs" />
+     <Compile Include="Assets\Scripts\PCManager.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/2019.4.15f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
