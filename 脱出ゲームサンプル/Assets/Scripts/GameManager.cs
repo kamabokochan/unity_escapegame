@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     // 各パネルを取得
     public GameObject lightStandPanel;
     public GameObject drawerPanel;
@@ -20,5 +19,12 @@ public class GameManager : MonoBehaviour
 
     public void OnClickPCTrigger() {
         pcPanel.SetActive(true);
+    }
+
+    // ボタンを押したらパネルを全て非表示にする
+    public void OnClickBackTrigger() {
+        lightStandPanel.SetActive(false);
+        drawerPanel.SetActive(false);
+        pcPanel.SetActive(false);
     }
 }
