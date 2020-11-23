@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrawerManager : MonoBehaviour
-{
+public class DrawerManager : MonoBehaviour {
     [SerializeField] GameObject lightBulbPanel;
     [SerializeField] GameObject alertText;
+    [SerializeField] ItemBoxManager itemBoxManager;
+
     void Start() {
         LightBulbSetActive(false);
     }
@@ -20,6 +21,7 @@ public class DrawerManager : MonoBehaviour
     // 2. Textを出す
     public void OnClickTrigger() {
         LightBulbSetActive(true);
+        itemBoxManager.SetItem(ITEM.LIGHT_BULB);
     }
 
     // 電球の画像をクリックすると電球画像を非表示にする
