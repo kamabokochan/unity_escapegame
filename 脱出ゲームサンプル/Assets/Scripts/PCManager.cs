@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PCManager : MonoBehaviour {
     [SerializeField] Text[] viewPasswordTexts;
@@ -30,6 +31,7 @@ public class PCManager : MonoBehaviour {
                 Debug.Log("正解");
                 isClear = true;
                 passwordPanelText.text = "CLEAR";
+                SceneManager.LoadScene("ClearScene");
             } else {
                 Debug.Log("はずれ");
                 // リセットする
