@@ -13,11 +13,21 @@ public class ItemBoxManager : MonoBehaviour {
     [SerializeField] Image[] itemBoxImages;
     [SerializeField] LightStandManager lightStandManager;
     [SerializeField] GameManager gameManager;
+    // SE
+    [SerializeField] AudioClip getItemSE;
+    private AudioSource audioSource;
 
     ITEM[] itemsList = new ITEM[4]; // 取得したアイテムの配列
 
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // アイテムを取得した
     public void SetItem(ITEM item) {
+        audioSource.PlayOneShot(getItemSE);
+
         itemsList[0] = item;
         switch (item) {
             case ITEM.LIGHT_BULB:
