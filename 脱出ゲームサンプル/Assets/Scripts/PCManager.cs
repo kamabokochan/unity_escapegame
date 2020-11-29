@@ -37,6 +37,7 @@ public class PCManager : MonoBehaviour {
                 // リセットする
                 userInputPassword = "";
                 currentIndex = 0;
+                passwordPanelText.text = "ERROR";
             }
         }
     }

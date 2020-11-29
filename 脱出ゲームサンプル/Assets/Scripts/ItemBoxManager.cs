@@ -13,6 +13,8 @@ public class ItemBoxManager : MonoBehaviour {
     [SerializeField] Image[] itemBoxImages;
     [SerializeField] LightStandManager lightStandManager;
     [SerializeField] GameManager gameManager;
+    [SerializeField] MessageManager messageManager;
+
     // SE
     [SerializeField] AudioClip getItemSE;
     private AudioSource audioSource;
@@ -44,6 +46,7 @@ public class ItemBoxManager : MonoBehaviour {
     public void UseItem(int index) {
         if (gameManager.currentPanel == PANEL.LIGHT_STAND && itemsList[index] == ITEM.LIGHT_BULB) {
             lightStandManager.LightSwitch(true);
+            messageManager.ToggleText(true, "数字が現れたぞ");
             itemsList[index] = ITEM.NONE; // アイテムを使用したので空にする
             itemBoxImages[index].sprite = null;
         }
