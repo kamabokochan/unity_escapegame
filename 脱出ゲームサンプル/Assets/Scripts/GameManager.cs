@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public GameObject lightStandPanel;
     public GameObject drawerPanel;
     public GameObject pcPanel;
+    [SerializeField] MessageManager messageManager;
 
     // 現在表示しているパネル
     public PANEL currentPanel = PANEL.ROOM;
@@ -40,5 +41,6 @@ public class GameManager : MonoBehaviour {
         lightStandPanel.SetActive(false);
         drawerPanel.SetActive(false);
         pcPanel.SetActive(false);
+        messageManager.ToggleText(false, "");
     }
 }

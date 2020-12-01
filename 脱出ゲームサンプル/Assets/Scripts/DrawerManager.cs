@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DrawerManager : MonoBehaviour {
     [SerializeField] GameObject lightBulbPanel;
-    [SerializeField] GameObject alertText;
     [SerializeField] ItemBoxManager itemBoxManager;
+    [SerializeField] MessageManager messageManager;
 
     void Start() {
         LightBulbSetActive(false);
@@ -13,7 +14,6 @@ public class DrawerManager : MonoBehaviour {
 
     void LightBulbSetActive(bool isShow) {
         lightBulbPanel.SetActive(isShow);
-        alertText.SetActive(isShow);
     }
 
     bool isGetBulb = false;
@@ -24,10 +24,13 @@ public class DrawerManager : MonoBehaviour {
     public void OnClickTrigger() {
         // すでに電球をゲットしていたら何もしない
         if (isGetBulb) {
+            LightBulbSetActive(false);
+            messageManager.ToggleText(true, "もうここには何もないみたいだな・・・");
             return;
         }
 
         LightBulbSetActive(true);
+        messageManager.ToggleText(true, "電球を見つけた");
         itemBoxManager.SetItem(ITEM.LIGHT_BULB);
         isGetBulb = true;
     }
@@ -35,5 +38,6 @@ public class DrawerManager : MonoBehaviour {
     // 電球の画像をクリックすると電球画像を非表示にする
     public void OnClickImage() {
         LightBulbSetActive(false);
+        messageManager.ToggleText(false, "");
     }
 }
